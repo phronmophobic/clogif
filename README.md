@@ -2,7 +2,7 @@
 
 Create gifs in clojure!
 
-Built with [FFmpeg](https://ffmpeg.org/) and [clj-media](https://github.com/phronmophobic/clj-media)
+Built with [FFmpeg](https://ffmpeg.org/) and [clj-media](https://github.com/phronmophobic/clj-media).
 
 ## Rationale
 
@@ -21,13 +21,13 @@ com.phronemophobic/clogif {:mvn/version "1.0"}
 ```
 
 ```clojure
-(save-gif!
- (graphics->media
-  (fn [g frameno]
-    (.setColor ^Graphics2D g Color/white)
-    (.fillRect ^Graphics2D g 0 0 100 100)
-    (.setColor ^Graphics2D g Color/black)
-    (.drawString ^Graphics2D g (str "Hello World " frameno) 5 50)))
+(gif/save-gif!
+ (gif/graphics->media
+  (fn [^Graphics2D g frameno]
+    (.setColor g Color/white)
+    (.fillRect g 0 0 100 100)
+    (.setColor g Color/black)
+    (.drawString g (str "Hello World " frameno) 5 50)))
  "hello-world.gif")
 ```
 ![Hello World](/assets/hello-world.gif?raw=true)
@@ -37,8 +37,8 @@ com.phronemophobic/clogif {:mvn/version "1.0"}
 ```clojure
 (require '[membrane.java2d :as java2d]
          '[membrane.ui :as ui])
-(save-gif!
- (graphics->media
+(gif/save-gif!
+ (gif/graphics->media
   (fn [g frameno]
     (java2d/draw-to-graphics
      g
