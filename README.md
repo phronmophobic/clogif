@@ -30,6 +30,7 @@ com.phronemophobic/clogif {:mvn/version "1.0"}
     (.drawString ^Graphics2D g (str "Hello World " frameno) 5 50)))
  "hello-world.gif")
 ```
+![Hello World](/assets/hello-world.gif?raw=true)
 
 ### [Membrane](https://github.com/phronmophobic/membrane) Compatible!
 
@@ -48,6 +49,8 @@ com.phronemophobic/clogif {:mvn/version "1.0"}
    :height 18})
  "membrane.gif")
 ```
+
+![Membrane gif](/assets/membrane.gif?raw=true)
 
 ## License
 
