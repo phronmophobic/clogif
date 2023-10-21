@@ -41,7 +41,7 @@
          height (or height 100)
          num-frames (or num-frames 24)
          fps (or fps 24)
-         img (new-img width height)
+         img ^BufferedImage (new-img width height)
          frame-format
          (clj-media/video-format
           {:pixel-format :pixel-format/abgr
@@ -67,6 +67,7 @@
                       (clj-media/make-frame
                        {:bytes (-> img
                                    (.getData)
+                                   ^java.awt.image.DataBufferByte
                                    (.getDataBuffer)
                                    (.getData))
                         :key-frame? true
