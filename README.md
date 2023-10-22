@@ -40,15 +40,15 @@ com.phronemophobic/clogif {:mvn/version "1.1"}
          '[membrane.ui :as ui])
 (gif/save-gif!
  (gif/graphics->media
-  (fn [g frameno]
-    (java2d/draw-to-graphics
-     g
-     [(ui/filled-rectangle [1 1 1]
-                           100 18)
-      (ui/label (str "membrane: " frameno))]))
+  java2d/draw-to-graphics
   {:width 100
    :height 18}
-  (range 24))
+  (eduction
+   (map (fn [frameno]
+          [(ui/filled-rectangle [1 1 1]
+                                100 18)
+           (ui/label (str "membrane: " frameno))]))
+   (range 24)))
  "membrane.gif")
 ```
 
