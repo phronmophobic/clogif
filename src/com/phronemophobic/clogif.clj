@@ -13,7 +13,7 @@
   (BufferedImage. width height BufferedImage/TYPE_4BYTE_ABGR))
 
 (defn graphics->media
-  "Creates a `media` by calling `drawf` with Graphics2D and each element of `coll`.
+  "Creates a `media` by calling `drawf` with a Graphics2D and each element of `coll`. `drawf` should draw the current frame. The return value is ignored.
 
   The following options are available:
   `:fps` frames per second. default: 24.
@@ -23,11 +23,11 @@
   Example:
 
   (graphics->media
-   (fn [g frameno]
-     (.setColor ^Graphics2D g Color/white)
-     (.fillRect ^Graphics2D g 0 0 100 100)
-     (.setColor ^Graphics2D g Color/black)
-     (.drawString ^Graphics2D g \"Hello World\" 5 50))
+   (fn [^Graphics2D g frameno]
+     (.setColor g Color/white)
+     (.fillRect g 0 0 100 100)
+     (.setColor g Color/black)
+     (.drawString g \"Hello World\" 5 50))
   (range 24))"
   ([drawf coll]
    (graphics->media drawf {} coll))
@@ -83,7 +83,7 @@
   `media` can be any valid media.
 
   Available options:
-  `:dither` A dithering algorithm. One of  \"bayer\", \"heckbert\", \"floyd_steinberg\", \"sierra2\", \"sierra2_4a\", \"sierra3\", \"burkes\", \"atkinson\", \"none\". See avfilter/paletteuse for more info. default \"sierra2_4a\"
+  `:dither` A dithering algorithm. One of  \"bayer\", \"heckbert\", \"floyd_steinberg\", \"sierra2\", \"sierra2_4a\", \"sierra3\", \"burkes\", \"atkinson\", \"none\". See avfilter/paletteuse for more info. default \"sierra2_4a\".
   `:transparent?` Allow transparency. default: true.
   `:alpha-threshold` Alpha cutoff for transparency. default 128."
   ([media fname]
