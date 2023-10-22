@@ -23,11 +23,12 @@ com.phronemophobic/clogif {:mvn/version "1.1"}
 ```clojure
 (gif/save-gif!
  (gif/graphics->media
-  (fn [^Graphics2D g frameno]
-    (.setColor g Color/white)
+  (fn [g frameno]
+    (.setColor g java.awt.Color/white)
     (.fillRect g 0 0 100 100)
-    (.setColor g Color/black)
-    (.drawString g (str "Hello World " frameno) 5 50)))
+    (.setColor g java.awt.Color/black)
+    (.drawString g (str "Hello World " frameno) 5 50))
+  (range 24))
  "hello-world.gif")
 ```
 ![Hello World](/assets/hello-world.gif?raw=true)
@@ -46,7 +47,8 @@ com.phronemophobic/clogif {:mvn/version "1.1"}
                            100 18)
       (ui/label (str "membrane: " frameno))]))
   {:width 100
-   :height 18})
+   :height 18}
+  (range 24))
  "membrane.gif")
 ```
 
