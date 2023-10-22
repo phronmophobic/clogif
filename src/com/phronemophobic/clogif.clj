@@ -70,7 +70,6 @@
                                    ^java.awt.image.DataBufferByte
                                    (.getDataBuffer)
                                    (.getData))
-                        :key-frame? true
                         :format frame-format
                         :time-base (:time-base frame-format)
                         :pts pts})))
