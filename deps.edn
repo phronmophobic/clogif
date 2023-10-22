@@ -1,7 +1,6 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.12.0-alpha5"}
-        com.phronemophobic/clj-media {:mvn/version "2.2"}
-        }
+        com.phronemophobic/clj-media {:mvn/version "2.3"}}
  :aliases
  {:build {:deps {io.github.clojure/tools.build {:git/tag "v0.8.3" :git/sha "0d20256"}
                  slipset/deps-deploy {:mvn/version "RELEASE"}}
