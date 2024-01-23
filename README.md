@@ -11,7 +11,7 @@ This library is a small wrapper around `clj-media` that offers a simplified API 
 ## Dependency
 
 ```edn
-com.phronemophobic/clogif {:mvn/version "1.3"}
+com.phronemophobic/clogif {:mvn/version "1.4"}
 ```
 
 ## Usage
